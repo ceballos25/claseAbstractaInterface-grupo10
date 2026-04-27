@@ -1,6 +1,9 @@
 package model.animal;
 
-public class Perro extends Animal {
+import interfaces.Asegurable;
+import interfaces.Vacunable;
+
+public class Perro extends Animal implements Vacunable, Asegurable {
     private String raza;
 
     public Perro(String nombre, int edad, String nombreDueno, String raza) {
@@ -13,4 +16,22 @@ public class Perro extends Animal {
         return 45000 + (3000 * getEdad());
     }
 
+    @Override
+    public void registratVacuna(String nombre) {
+    }
+
+    @Override
+    public int getVacunasAplicadas() {
+        return 0;
+    }
+
+    @Override
+    public double calcularPrimaSeguro() {
+        return 0;
+    }
+
+    @Override
+    public String obtenerNumeroPoliza() {
+        return "";
+    }
 }

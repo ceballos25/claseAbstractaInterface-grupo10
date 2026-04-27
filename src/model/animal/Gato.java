@@ -1,6 +1,9 @@
 package model.animal;
 
-public class Gato extends Animal {
+import interfaces.Asegurable;
+import interfaces.Vacunable;
+
+public class Gato extends Animal implements Vacunable, Asegurable {
     protected boolean esEsterilizado;
 
     public Gato(String nombre, int edad, String nombreDueno, boolean esEsterilizado) {
@@ -11,5 +14,25 @@ public class Gato extends Animal {
 
     public double calcularCostoConsulta(){
         return 38000;
+    }
+
+    @Override
+    public void registratVacuna(String nombre) {
+
+    }
+
+    @Override
+    public int getVacunasAplicadas() {
+        return 0;
+    }
+
+    @Override
+    public double calcularPrimaSeguro() {
+        return 0;
+    }
+
+    @Override
+    public String obtenerNumeroPoliza() {
+        return "";
     }
 }
