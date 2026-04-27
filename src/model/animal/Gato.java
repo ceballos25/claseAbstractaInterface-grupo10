@@ -3,8 +3,12 @@ package model.animal;
 import interfaces.Asegurable;
 import interfaces.Vacunable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Gato extends Animal implements Vacunable, Asegurable {
     protected boolean esEsterilizado;
+    private List<String> vacunas = new ArrayList<>();
 
     public Gato(String nombre, int edad, String nombreDueno, boolean esEsterilizado) {
         super(nombre,edad,nombreDueno);
@@ -17,8 +21,8 @@ public class Gato extends Animal implements Vacunable, Asegurable {
     }
 
     @Override
-    public void registratVacuna(String nombre) {
-
+    public void registraVacuna(String nombre) {
+        vacunas.add(nombre);
     }
 
     @Override
@@ -28,11 +32,18 @@ public class Gato extends Animal implements Vacunable, Asegurable {
 
     @Override
     public double calcularPrimaSeguro() {
-        return 0;
+        if(esEsterilizado){
+            return 120000;
+        }else{
+            return 200000;
+        }
     }
 
     @Override
     public String obtenerNumeroPoliza() {
         return "";
     }
+
+
+
 }

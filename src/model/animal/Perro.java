@@ -3,8 +3,12 @@ package model.animal;
 import interfaces.Asegurable;
 import interfaces.Vacunable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Perro extends Animal implements Vacunable, Asegurable {
     private String raza;
+    private List<String> vacunas = new ArrayList<>();
 
     public Perro(String nombre, int edad, String nombreDueno, String raza) {
         super(nombre,edad,nombreDueno);
@@ -17,7 +21,8 @@ public class Perro extends Animal implements Vacunable, Asegurable {
     }
 
     @Override
-    public void registratVacuna(String nombre) {
+    public void registraVacuna(String nombre) {
+        vacunas.add(nombre);
     }
 
     @Override
@@ -27,12 +32,12 @@ public class Perro extends Animal implements Vacunable, Asegurable {
 
     @Override
     public double calcularPrimaSeguro() {
-        return (8000 * getEdad());
+        return 80000 * getEdad();
 
     }
 
     @Override
     public String obtenerNumeroPoliza() {
-        return "";
+        return "POL-CLINICA-" + nombre.toUpperCase().replace(" ", "_");
     }
 }
