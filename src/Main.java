@@ -4,6 +4,7 @@ import model.animal.Animal;
 import model.animal.Gato;
 import model.animal.Perro;
 import model.animal.Ave;
+import model.clinica.Clinica;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,21 +27,21 @@ public class Main {
 
         if (perro instanceof Vacunable) {
             Vacunable vPerro = (Vacunable) perro;
-            vPerro.registratVacuna("Rabia");
-            vPerro.registratVacuna("Parvovirus");
+            vPerro.registraVacuna("Rabia");
+            vPerro.registraVacuna("Parvovirus");
             System.out.println("Vacunas de Rex: " + vPerro.getVacunasAplicadas());
         }
 
         if (gato instanceof Vacunable) {
             Vacunable vGato = (Vacunable) gato;
-            vGato.registratVacuna("Panleucopenia");
-            vGato.registratVacuna("Calicivirus");
+            vGato.registraVacuna("Panleucopenia");
+            vGato.registraVacuna("Calicivirus");
             System.out.println("Vacunas de Misu: " + vGato.getVacunasAplicadas());
         }
 
         // 4
         System.out.println("PÓLIZAS");
-        Clinica clinica = new Clinica("VetCare", "Calle 45 #12-30");
+        Clinica clinica = new Clinica("VetCare", "Calle 45 #12-30", true);
 
         Asegurable[] asegurables = {
                 (Asegurable) perro,
@@ -54,10 +55,9 @@ public class Main {
         }
 
         // 5
-        System.out.println("CONEJO");
-        Animal conejo = new Conejo("Bunny", 1, "Laura");
-        conejo.imprimirFicha();
-
+//        System.out.println("CONEJO");
+//        Animal conejo = new Conejo("Bunny", 1, "Laura");
+//        conejo.fichaPresentacion();
 
     }
 }
