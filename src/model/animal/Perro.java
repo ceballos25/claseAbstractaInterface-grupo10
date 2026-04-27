@@ -27,7 +27,8 @@ public class Perro extends Animal implements Vacunable, Asegurable {
 
     @Override
     public double calcularPrimaSeguro() {
-        return 0;
+        return (8000 * getEdad());
+
     }
 
     @Override
